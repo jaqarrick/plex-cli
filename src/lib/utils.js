@@ -26,6 +26,7 @@ module.exports = service;
 
 function processCliArgs(argv) {
     const keys = [
+        'saveConfig',
         'baseUrl',
         'mediaId',
         'authToken',
