@@ -6,6 +6,7 @@ const constants = {
     PROMPT_BASE_URL: 'Base URL',
     PROMPT_MEDIA_ID_URL: 'Media ID',
     PROMPT_AUTH_TOKEN: 'Auth Token',
+    PROMPT_CLIENT_ID: 'Client ID',
     PROMPT_OUTPUT_DIR: 'Media Output Directory',
     PROMPT_OVERWRITE: 'Overwrite File? (Y/n)',
 
@@ -14,7 +15,12 @@ const constants = {
 
     ERROR_BAD_RESPONSE: 'Received a bad response from Plex.',
 
-    PROGRESS_BAR: '  Downloading [:bar] :rate/bps :percent :etas'
+    PROGRESS_BAR: '  Downloading [:bar] :rate/bps :percent :etas',
+
+    EXPLORE_MODE: 'explore',
+    DOWNLOAD_MODE: 'download',
+    TEST_MODE: 'test',
+
 };
 
 module.exports = constants;

@@ -20,13 +20,37 @@ const service = {
     promptForInput,
     parseXmlMetadata,
     downloadMedia,
-    touchFile
+    touchFile,
+    determineCliMode,
 };
 module.exports = service;
 
+function determineCliMode(argv) {
+    keys = [
+        'explore',
+        'download',
+        'test'
+    ];
+
+    const modeInputs = keys.reduce((acc, key) => {
+        const keyIndex = argv.indexOf(key);
+        if(keyIndex > -1){
+            acc.push(key);
+        }
+        return acc;
+    }, []);
+
+    if (modeInputs.length === 1){
+        return modeInputs[0];
+    }
+
+    return null;
+
+}
 function processCliArgs(argv) {
     const keys = [
         'saveConfig',
+        'clientId',
         'baseUrl',
         'mediaId',
         'authToken',
