@@ -1,23 +1,25 @@
 {
-  "name": "plex-dl",
+  "name": "plex-cli",
   "version": "0.0.2",
-  "description": "A CLI utility to download media files from a Plex Server",
+  "description": "A CLI utility to browse download media files from a Plex Server. Forked from elklein96's plex-dl CLI",
   "main": "src/index.js",
   "bin": {
-    "plex-dl": "bin/plex-dl"
+    "plex-cli": "bin/plex-cli"
   },
   "scripts": {
-    "start": "./bin/plex-dl",
+    "start": "./bin/plex-cli",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Evan Klein",
+  "author": "jaqarrick",
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.15",
+    "plex-api": "^5.3.2",
     "progress": "^2.0.3",
     "request": "^2.87.0",
     "request-promise": "^4.2.5",
+    "url": "^0.11.0",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {

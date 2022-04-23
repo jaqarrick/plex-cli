@@ -1,6 +1,6 @@
-# plex-dl
+# plex-cli
 
-`plex-dl` is a command-line interface utility for downloading media files from a Plex server.
+`plex-cli` is a command-line interface utility for downloading media files from a Plex server.
 
 ## Table of Contents
 
@@ -17,13 +17,13 @@
 ### Install the Tool
 
 ```bash
-npm install -g plex-dl
+npm install -g plex-cli
 ```
 
 ### Use the Tool
 
 ```bash
-$ plex-dl
+$ plex-cli
 
 > Base URL: https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
 > Media ID: 123456
@@ -36,10 +36,10 @@ Please check /Users/evanklein/Downloads/Inception.mp4
 
 #### Non-interactive mode
 
-To use plex-dl in a non-interactive mode, supply the following CLI flags:
+To use plex-cli in a non-interactive mode, supply the following CLI flags:
 
 ```bash
-$ plex-dl \
+$ plex-cli \
   --baseUrl https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
   --mediaId 123456 \
   --authToken wa3iJvt3nKzi12Pr1Zxq \
