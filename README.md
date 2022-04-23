@@ -10,7 +10,8 @@
 
 ## Features
 
-1. CLI utility that downloads Plex media and saves it to a local file.
+- Download Plex media and save it to a local directory.
+- Explore media collections and download them as a batch.
 
 ## Quick Start
 
@@ -20,10 +21,10 @@
 npm install -g plex-cli
 ```
 
-### Use the Tool
+### Use the Standalone Download Command
 
 ```bash
-$ plex-cli
+$ plex-cli download
 
 > Base URL: https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
 > Media ID: 123456
@@ -34,61 +35,66 @@ Success! File downloaded without error.
 Please check /Users/evanklein/Downloads/Inception.mp4
 ```
 
+### Explore and Download Media Collections
+```bash
+$ plex-cli explore
+```
+
 #### Non-interactive mode
 
 To use plex-cli in a non-interactive mode, supply the following CLI flags:
 
 ```bash
-$ plex-cli \
+$ plex-cli download \
   --baseUrl https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
   --mediaId 123456 \
   --authToken wa3iJvt3nKzi12Pr1Zxq \
   --outputDirectory ~/Downloads
 ```
 
+```bash
+$ plex-cli explore \
+  --baseUrl https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
+  --mediaId 123456 \
+  --authToken wa3iJvt3nKzi12Pr1Zxq \
+  --outputDirectory ~/Downloads \
+  --clientId
+```
+Note that `clientId` can be a random string. This allows the Plex API to uniquely identify your device.
+
+#### Saving your flag values
+Use `--saveConfig true` to store your authToken, clientId, and baseUrl to your device for future use. 
 ## FAQ
 
 ### What are some example inputs for the CLI prompts
-
 #### Base URL
+**The base URL of the Plex server.**
 
-- Description
-  - The base URL of the Plex server.
-
-- Example Value
-  - `https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400`
+_Example: `https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400`_
 
 #### Media ID
+**The ID of the media item in Plex server.**
+Obtain this value by navigating to the desired media item on Plex server. Inspect the query parameter `key`. Its value will have the schema `/library/metadata/<mediaId>`
 
-- Description
-  - The ID of the media item in Plex server.
-  - Obtain this value by navigating to the desired media item on Plex server. Inspect the query parameter `key`. Its value will have the schema `/library/metadata/<mediaId>`
-
-- Example Value
-  - `123456`
+_Example: `123456`_
 
 #### Auth Token
+**The authentication token used to make requests via the Plex server API.**
+Inspect the network logs in the browser when playing the media item in Plex server. Search for `X-Plex-Token`, which is the name of the query parameter Plex uses to pass its authentication token in requests.
 
-- Description
-  - The authentication token used to make requests via the Plex server API.
-  - Inspect the network logs in the browser when playing the media item in Plex server. Search for `X-Plex-Token`, which is the name of the query parameter Plex uses to pass its authentication token in requests.
-
-- Example Value
-  - `wa3iJvt3nKzi12Pr1Zxq`
+_Example: `wa3iJvt3nKzi12Pr1Zxq`_
 
 #### Media Output Directory
+**The directory which will contain the downloaded media file.**
+This value can be an absolute or relative path.
 
-- Description
-  - The directory which will contain the downloaded media file.
-  - This value can be an absolute or relative path.
+_Example: `~/Downloads`_
 
-- Example Value
-  - `~/Downloads`
+#### ClientId
+**A string that identifies your device to the Plex API**
 
-#### Overwrite File
+#### Save Config Option
+With `--saveConfig true` values for Auth Token, BaseUrl, Port, and Client Id will be saved to a config file on your device (`~/.plexconf`).
 
-- Description
-  - This field dictates whether of not to overwrite a file if one exists with the same name as the media item to be downloaded at the same location specified at `Media Output Directory`.
-
-- Example Value
-  - `Y`
+## Attribution
+This project is a fork of Evan Klein's [plex-dl](https://github.com/elklein96/plex-dl) CLI, which is the foundation of the download process in this interface. 
