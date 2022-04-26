@@ -1,5 +1,7 @@
 # plex-cli
 
+🚧 WIP 🚧
+
 `plex-cli` is a command-line interface utility for downloading media files from a Plex server.
 
 ## Table of Contents
