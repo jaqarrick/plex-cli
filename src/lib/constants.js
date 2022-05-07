@@ -1,4 +1,7 @@
 const constants = {
+    
+    DEVICE_NAME: "Plex CLI",
+
     MEDIA_DOWNLOAD_XPATH: 'MediaContainer.Video[0].Media[0].Part[0].$.key',
     MEDIA_CONTAINER_XPATH: 'MediaContainer.Video[0].Media[0].$.container',
     MEDIA_TITLE_XPATH: 'MediaContainer.Video[0].$.title',

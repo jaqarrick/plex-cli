@@ -1,9 +1,7 @@
-const rp = require('request-promise');
-
-const PlexAPIClient = require('./api/plex-api');
 const configure = require('./lib/configure');
 const utils = require('./lib/utils');
 const constants = require('./lib/constants');
+const Plexer = require('./lib/plexer');
 
 const service = {
     main
@@ -42,35 +40,13 @@ async function main(argv) {
         });
     }
 
-    if (currentMode === constants.DOWNLOAD_MODE) {
-        const mediaId =
-            cliArgs.mediaId ||
-            (await utils.promptForInput(constants.PROMPT_MEDIA_ID_URL));
-        const metadataUrl = `${baseUrl}/library/metadata/${mediaId}?X-Plex-Token=${authToken}`;
-        const xmlMetadata = await rp(metadataUrl);
-        let exitCode = 1;
-    
-        try {
-            const metadata = await utils.parseXmlMetadata(xmlMetadata);
-            const mediaUrl = `${baseUrl}${metadata.mediaPath}?download=1&X-Plex-Token=${authToken}`;
-    
-            const output = await utils.downloadMedia(mediaUrl, outputDirectory, metadata.title, metadata.container);
-            console.log(constants.RESPONSE_SUCCESS);
-            console.log(`Please check ${output}`);
-    
-            exitCode = 0;
-        } catch (error) {
-            console.error(constants.RESPONSE_FAILURE);
-            console.error(error);
-        }
-    
-        process.exit(exitCode);
-    } else if (currentMode === constants.EXPLORE_MODE) {
-        const plexClient = new PlexAPIClient(baseUrl, authToken, clientId);
-        const collections = await plexClient.getCollections()
-        console.log(collections)
-    }
+    const plexer = new Plexer({
+        baseUrl,
+        authToken,
+        outputDirectory,
+        clientId,
+    })
 
+    await plexer.init(currentMode, cliArgs.mediaId);
     process.exit(0);
-    
 }
