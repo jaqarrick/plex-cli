@@ -1,8 +1,8 @@
-# plex-cli
+# plexer
 
 🚧 WIP 🚧
 
-`plex-cli` is a command-line interface utility for downloading media files from a Plex server.
+`plexer` is a command-line interface utility for downloading media files from a Plex server.
 
 ## Table of Contents
 
@@ -20,13 +20,13 @@
 ### Install the Tool
 
 ```bash
-npm install -g plex-cli
+npm install -g plexer
 ```
 
 ### Use the Standalone Download Command
 
 ```bash
-$ plex-cli download
+$ plexer download
 
 > Base URL: https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
 > Media ID: 123456
@@ -39,15 +39,15 @@ Please check /Users/evanklein/Downloads/Inception.mp4
 
 ### Explore and Download Media Collections
 ```bash
-$ plex-cli explore
+$ plexer explore
 ```
 
 #### Non-interactive mode
 
-To use plex-cli in a non-interactive mode, supply the following CLI flags:
+To use plexer in a non-interactive mode, supply the following CLI flags:
 
 ```bash
-$ plex-cli download \
+$ plexer download \
   --baseUrl https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
   --mediaId 123456 \
   --authToken wa3iJvt3nKzi12Pr1Zxq \
@@ -55,7 +55,7 @@ $ plex-cli download \
 ```
 
 ```bash
-$ plex-cli explore \
+$ plexer explore \
   --baseUrl https://255-255-255-255.dygevsK8qUWrIXGjXFzhFQDjgbpQWpnW.plex.direct:32400
   --mediaId 123456 \
   --authToken wa3iJvt3nKzi12Pr1Zxq \

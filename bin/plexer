@@ -3,6 +3,6 @@
 
 const cli = require('../src');
 
-process.title = 'plex-cli';
+process.title = 'plexer';
 
 cli.main(process.argv);
