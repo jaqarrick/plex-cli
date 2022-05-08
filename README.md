@@ -17,10 +17,10 @@
 
 ## Quick Start
 
-### Install the Tool
+### Install the Tool (this isn't set up yet)
 
 ```bash
-npm install -g plexer
+npm install -g plexer-cli
 ```
 
 ### Use the Standalone Download Command
