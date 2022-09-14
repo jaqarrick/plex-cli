@@ -9,7 +9,8 @@
   "scripts": {
     "start": "./bin/plexer",
     "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "npx prettier --write src"
   },
   "author": "jaqarrick",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^5.16.0",
+    "prettier": "^2.7.1"
   }
 }
